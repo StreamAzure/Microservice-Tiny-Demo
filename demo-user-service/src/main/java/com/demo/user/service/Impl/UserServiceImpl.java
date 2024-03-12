@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     /**
      * 根据传入的 id 返回用户信息
      */
-    public User queryUserInfo(Long id){
-        return userMap.get(id);
+    public String queryUserInfo(Long id){
+        return userMap.get(id).toString();
     }
 }

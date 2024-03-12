@@ -1,14 +1,18 @@
 package com.demo.ticket.pojo;
 
 import lombok.Data;
-import com.demo.user.pojo.User;
 
 @Data
 public class Ticket {
-    private User user;
+    private String userInfo;
     private String station;
 
+    public Ticket(String userInfo, String station) {
+        this.userInfo = userInfo;
+        this.station = station;
+    }
+
     public String toString(){
-        return "User " + user.getId() + ", name " + user.getName() + ", station " + station;
+        return userInfo + ", station " + station;
     }
 }

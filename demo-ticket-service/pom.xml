@@ -33,9 +33,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.demo</groupId>
-            <artifactId>demo-user-service</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.stream</groupId>
+            <artifactId>demo-feign-apis</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
