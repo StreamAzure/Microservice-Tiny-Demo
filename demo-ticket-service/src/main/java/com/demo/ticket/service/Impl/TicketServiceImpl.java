@@ -22,7 +22,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public String buyTicketRest(Long id) {
-        String url = "http://localhost:8081/getUserInfoRest/" + id;
+        String url = "http://user-service:8081/getUserInfoRest/" + id;
         String userInfo = restTemplate.getForObject(url, String.class);
         Ticket ticket = new Ticket(userInfo, "北京");
         return ticket.toString();
