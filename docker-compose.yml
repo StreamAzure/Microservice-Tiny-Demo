@@ -1,0 +1,38 @@
+version: "4.0"
+
+services:
+  user-service:
+    build: ./demo-user-service
+    ports:
+      - "8081:8081"
+    networks:
+      - demo-network
+
+
+  ticket-service:
+    build: ./demo-ticket-service
+    ports:
+      - "8082:8082"
+    networks:
+      - demo-network
+
+networks:
+  demo-network:
+    # driver: overlay
+    driver: bridge
+
+  # collector:
+  #   image: otel/opentelemetry-collector:0.72.0
+  #   command: [ "--config=/etc/otel-collector-config.yml" ]
+  #   volumes:
+  #     - ./otel-config.yml:/etc/otel-collector-config.yml
+  #   ports:
+  #     - "4317:4317"
+  #   depends_on:
+  #     - jaeger-service
+
+  # jaeger-service:
+  #   image: jaegertracing/all-in-one:latest
+  #   ports:
+  #     - "16686:16686"
+  #     - "14250"
