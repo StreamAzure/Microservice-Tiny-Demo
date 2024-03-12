@@ -21,4 +21,10 @@ public class UserController {
         return userService.queryUserInfo(id);
     }
 
+    @GetMapping("/getUserInfoRest/{id}")
+    public String queryUserInfoRest(@PathVariable("id") Long id){
+        System.out.println("访问 /getUserInfoRest/"+id);
+        return userService.queryUserInfo(id);
+    }
+
 }
