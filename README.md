@@ -5,7 +5,7 @@ JDK 17 + Spring Boot 3.2.3
 ![调用关系示意图](assets/demo-relation.png)
 
 ## Demo 部署
-见 master 分支
+见 [master 分支](https://github.com/StreamAzure/Microservice-Tiny-Demo/tree/master)
 
 ## OpenTelemetry + Jaeger 链路追踪组件部署
 在上述微服务 Demo 的基础上，可添加 OpenTelemetry + Jaeger 进行链路追踪，通过 Jaeger UI 观察微服务调用过程，如下图所示：
