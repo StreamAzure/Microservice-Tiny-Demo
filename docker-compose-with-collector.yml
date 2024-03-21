@@ -8,6 +8,8 @@ services:
       - "8081:8081"
     networks:
       - demo-network
+    depends_on:
+      - mysql
 
   ticket-service:
     build: ./demo-ticket-service
@@ -16,6 +18,18 @@ services:
       - "8082:8082"
     networks:
       - demo-network
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0.33
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    networks:
+      - demo-network
+
 
   otel-collector:
     image: otel/opentelemetry-collector-contrib
