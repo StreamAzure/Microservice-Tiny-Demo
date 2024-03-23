@@ -25,5 +25,3 @@ JDK 17 + Spring Boot 3.2.3
         curl http://localhost:8082/buyTicket/restful/1
         # User(id=1, name=张三), station 北京
         ```
-## OpenTelemetry + Jaeger 链路追踪组件部署
-见 [jaeger 分支](https://github.com/StreamAzure/Microservice-Tiny-Demo/tree/jaeger)
