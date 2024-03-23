@@ -8,12 +8,25 @@ services:
       - "8081:8081"
     networks:
       - demo-network
+    depends_on:
+      - mysql
 
   ticket-service:
     build: ./demo-ticket-service
     image: demo/ticket-service
     ports:
       - "8082:8082"
+    networks:
+      - demo-network
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0.33
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - ./mysql/init:/docker-entrypoint-initdb.d
     networks:
       - demo-network
 
