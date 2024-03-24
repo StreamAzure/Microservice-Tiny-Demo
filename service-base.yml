@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+spec:	    #这是关于该 Service 的定义，描述了 Service 如何选择 Pod，如何被访问
+  selector:	    #标签选择器
+    app: user-service
+  ports:
+    - name: http
+      port: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ticket-service
+spec:
+  type: NodePort # 端口暴露给集群外部，通过<Node IP>:<Node Port>访问
+  selector:
+    app: ticket-service
+  ports:
+    - name: http
+      port: 8082
+      nodePort: 32756 # 对集群外部暴露的端口
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+spec:
+  selector:
+    app: mysql
+  ports:
+    - name: mysql
+      port: 3306
+  type: NodePort
