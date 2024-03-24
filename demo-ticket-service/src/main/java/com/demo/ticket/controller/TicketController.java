@@ -15,14 +15,12 @@ public class TicketController {
     private TicketService ticketService;
 
     @GetMapping("/feign/{id}")
-    // curl http://localhost:8082/buyTicket/feign/1
     public String buyTicket(@PathVariable("id") Long id){
         System.out.println("（Feign）访问 /buyTicket/feign/"+id);
         return ticketService.buyTicket(id);
     }
 
     @GetMapping("/restful/{id}")
-    // curl http://localhost:8082/buyTicket/restful/1
     public String buyTicketRest(@PathVariable("id") Long id){
         System.out.println("（RestTemplate） 访问 /buyTicket/restful/"+id);
         return ticketService.buyTicketRest(id);

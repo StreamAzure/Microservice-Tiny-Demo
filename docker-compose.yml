@@ -3,7 +3,7 @@ version: "4.0"
 services:
   user-service:
     build: ./demo-user-service
-    image: demo/user-service
+    image: demo/user-service:base
     ports:
       - "8081:8081"
     networks:
@@ -13,7 +13,7 @@ services:
 
   ticket-service:
     build: ./demo-ticket-service
-    image: demo/ticket-service
+    image: demo/ticket-service:base
     ports:
       - "8082:8082"
     networks:

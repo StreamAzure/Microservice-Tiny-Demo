@@ -11,7 +11,7 @@ JDK 17 + Spring Boot 3.2.3
     ```
 2. 通过 docker-compose 部署：
     ```shell
-    docker-compose up -d
+    docker-compose up --build -d
     # 停止并删除容器：docker-compose down
     ```
 3. 测试
