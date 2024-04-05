@@ -29,6 +29,18 @@ services:
       - ./mysql/init:/docker-entrypoint-initdb.d
     networks:
       - demo-network
+  
+  interceptor:
+    image: mitmproxy/mitmproxy:10.2.4
+    container_name: demo-interceptor
+    command: mitmweb -s /demo-interceptor/demo.py --web-host 0.0.0.0
+    ports:
+      - "8900:8081" # 通过 localhost:8900 访问 mitmweb
+      - "8080:8080" # 监听端口，各微服务的代理服务器需设置为 interceptor:8080
+    volumes:
+      - C:\Me\JavaPractice\Microservice-Tiny-Demo\demo-interceptor:/demo-interceptor
+    networks:
+      - demo-network
 
 networks:
   demo-network:
