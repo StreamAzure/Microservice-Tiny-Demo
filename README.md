@@ -7,8 +7,8 @@ JDK 17 + Spring Boot 3.2.3
 ### 通过 Docker-compose
 1. 自行将 `demo-` 开头的各个模块编译打包成 jar 包，注意路径及名称：
     ```shell
-    demo-ticket-service/demo-ticket-service-0.0.1-SNAPSHOT.jar
-    demo-user-service/demo-user-service-0.0.1-SNAPSHOT.jar
+    demo-ticket-service/target/demo-ticket-service-0.0.1-SNAPSHOT.jar
+    demo-user-service/target/demo-user-service-0.0.1-SNAPSHOT.jar
     ```
 2. 通过 docker-compose 部署：
     ```shell
@@ -26,6 +26,8 @@ JDK 17 + Spring Boot 3.2.3
         curl http://localhost:8082/buyTicket/restful/1
         # User(id=1, name=张三), station 北京
         ```
+   
+   URL末尾数字为1或2时，查询的是MySQL中的数据；为3或4时，查询的是服务内部直接初始化的模拟数据
 ### 通过 k8s（Kind）
 1. 自行将 `demo-` 开头的各个模块编译打包成 jar 包
    ```shell
