@@ -10,12 +10,13 @@ JDK 17 + Spring Boot 3.2.3
     demo-ticket-service/target/demo-ticket-service-0.0.1-SNAPSHOT.jar
     demo-user-service/target/demo-user-service-0.0.1-SNAPSHOT.jar
     ```
-2. 通过 docker-compose 部署：
+2. 获取 [JVM-HTTP-Proxy-Agent jar 包](https://github.com/httptoolkit/jvm-http-proxy-agent)；获取 [ca.pem](https://curl.se/docs/caextract.html)
+3. 通过 docker-compose 部署：
     ```shell
     docker-compose up --build -d
     # 停止并删除容器：docker-compose down
     ```
-3. 测试
+4. 测试
     - OpenFeign 调用
         ```shell
         curl http://localhost:8082/buyTicket/feign/1
