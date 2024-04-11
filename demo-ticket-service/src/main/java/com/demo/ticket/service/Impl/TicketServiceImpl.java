@@ -13,6 +13,15 @@ public class TicketServiceImpl implements TicketService {
     private IUserClient userClient;
     @Autowired
     private RestTemplate restTemplate;
+
+    private void print(){
+        System.out.println("HelloWorld");
+    }
+
+    public int plus(int a, int b){
+        return a + b;
+    }
+
     @Override
     public String buyTicket(Long id) {
         String userInfo = userClient.queryUserInfo(id);
@@ -22,7 +31,9 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public String buyTicketRest(Long id) {
-        String url = "http://localhost:8081/getUserInfoRest/" + id;
+        print();
+        int c = plus(1,3);
+        String url = "http://user-service:8081/getUserInfoRest/" + id;
         String userInfo = restTemplate.getForObject(url, String.class);
         Ticket ticket = new Ticket(userInfo, "北京");
         return ticket.toString();

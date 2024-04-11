@@ -6,8 +6,8 @@ JDK 17 + Spring Boot 3.2.3
 ## Demo 部署
 1. 自行将 `demo-` 开头的各个模块编译打包成 jar 包，注意路径及名称：
     ```
-    demo-ticket-service/demo-ticket-service-0.0.1-SNAPSHOT.jar
-    demo-user-service/demo-user-service-0.0.1-SNAPSHOT.jar
+    demo-ticket-service/target/demo-ticket-service-0.0.1-SNAPSHOT.jar
+    demo-user-service/target/demo-user-service-0.0.1-SNAPSHOT.jar
     ```
 2. 通过 docker-compose 部署：
     ```shell

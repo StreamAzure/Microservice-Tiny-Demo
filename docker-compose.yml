@@ -3,7 +3,7 @@ version: "4.0"
 services:
   user-service:
     build: ./demo-user-service
-    image: demo/user-service
+    image: demo/user-service:skywalking
     ports:
       - "8081:8081"
     networks:
@@ -13,7 +13,7 @@ services:
 
   ticket-service:
     build: ./demo-ticket-service
-    image: demo/ticket-service
+    image: demo/ticket-service:skywalking
     ports:
       - "8082:8082"
     networks:
@@ -32,19 +32,19 @@ services:
 
   oap-server:
     image: apache/skywalking-oap-server:9.2.0
-    container_name: oap-server
+    container_name: skywalking-server
     restart: always
     networks:
       - demo-network
 
   oap-ui:
     image: apache/skywalking-ui:9.2.0
-    container_name: oap-ui
+    container_name: skywalking-ui
     restart: always
     environment:
       - SW_OAP_ADDRESS=http://oap-server:12800
     ports:
-      - "8090:8080"
+      - "8890:8080"
     networks:
       - demo-network
 

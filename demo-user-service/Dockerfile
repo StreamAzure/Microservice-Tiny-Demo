@@ -1,5 +1,5 @@
 FROM openjdk:17-jdk-slim
-COPY demo-user-service-0.0.1-SNAPSHOT.jar demo-user-service.jar
+COPY target/demo-user-service-0.0.1-SNAPSHOT.jar demo-user-service.jar
 
 COPY ../apache-skywalking-java-agent-9.1.0.tgz apache-skywalking-java-agent-9.1.0.tgz
 RUN tar -xzf apache-skywalking-java-agent-9.1.0.tgz
