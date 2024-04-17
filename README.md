@@ -1,8 +1,10 @@
 # 基于 Spring Boot 的微服务远程调用极简 Demo
 ## 环境
 JDK 17 + Spring Boot 3.2.3
-## Demo 调用关系示意图
-![调用关系示意图](assets/demo-relation.png)
+## Demo 服务架构
+- user-service (Java Spring Boot): 数据库查询，返回用户信息
+- ticket-service (Java Spring Boot)：远程调用 user-service 查询用户信息，再返回车票信息
+- station-service (Python Flask)：数据库查询，返回车站信息
 ## Demo 部署
 1. 自行将 `demo-` 开头的各个模块编译打包成 jar 包，注意路径及名称：
     ```
@@ -24,4 +26,9 @@ JDK 17 + Spring Boot 3.2.3
         ```shell
         curl http://localhost:8082/buyTicket/restful/1
         # User(id=1, name=张三), station 北京
+        ```
+    - station-service
+        ```shell
+        curl http://localhost:5000/
+        curl http://localhost:5000/station/1
         ```
